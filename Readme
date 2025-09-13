@@ -1,0 +1,44 @@
+# Task Management API (RBAC)
+
+A small Task Management API built with **Node.js** and **Express** that supports **JWT authentication** and **role-based access control (RBAC)**.
+
+Users can be **Admin, Manager, or User**, and their role determines what tasks they can manage.
+
+---
+
+## Features
+
+- User authentication with JWT
+- Role-based permissions: Admin, Manager, User
+- CRUD operations on tasks
+- In-memory storage (no database)
+- Proper error handling (401, 403, 404, 500)
+
+---
+
+## Roles & Permissions
+
+| Role    | Permissions on Tasks                     |
+| ------- | ---------------------------------------- |
+| Admin   | Create, Read all, Update any, Delete any |
+| Manager | Create, Read all, Update own only        |
+| User    | Create, Read own only, Update own only   |
+
+---
+
+## Endpoints
+
+- **POST /user/login** → Get JWT
+- **POST /task/create** → Create task
+- **GET /task/gettask** → Get tasks (all or own depending on role)
+- **PUT /task/update//:id** → Update task
+- **DELETE /task/delete/:id** → Delete task (Admin only)
+
+---
+
+## hwo to start
+
+step 1:-
+npm i  
+step 2:-
+npm run dev
