@@ -34,4 +34,42 @@ let tasks = [
   { id: 2, title: "Fix Bug", ownerId: 3 },
 ];
 let nextTaskId = 3;
-module.exports = { users, roles, tasks, nextTaskId };
+
+let userSignData = {};
+let transactionData = [
+  {
+    id: "1",
+    amount: 50,
+    category: "Food",
+    type: "expense",
+    description: "Grocery shopping",
+    date: "2025-01-15",
+    userId: "userqwert12",
+  },
+  {
+    id: "2",
+    amount: 3000,
+    category: "Salary",
+    type: "income",
+    description: "Monthly salary",
+    date: "2025-01-01",
+    userId: "userqwtyt12",
+  },
+  {
+    id: "3",
+    amount: 30,
+    category: "Transport",
+    type: "expense",
+    description: "Uber ride",
+    date: "2025-01-20",
+    userId: "userqwght12",
+  },
+];
+module.exports = {
+  users,
+  roles,
+  tasks,
+  nextTaskId,
+  userSignData,
+  transactionData,
+};
