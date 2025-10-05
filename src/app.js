@@ -1,8 +1,11 @@
 const express = require("express");
 const { userRouter, taskRouter } = require("./routers");
 const { errorHandler } = require("./errorhandling/error");
+const cors = require("cors");
 // const { userRouter } = require("./routers");
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
