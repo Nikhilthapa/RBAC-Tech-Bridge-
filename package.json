@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "index",
+    "start": "node src/index",
     "dev": "nodemon src/index"
   },
   "dependencies": {
