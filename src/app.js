@@ -5,7 +5,16 @@ const cors = require("cors");
 // const { userRouter } = require("./routers");
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://verdant-florentine-2bc31a.netlify.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
