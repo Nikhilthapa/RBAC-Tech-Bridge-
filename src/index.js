@@ -1,11 +1,11 @@
 const app = require("./app");
-require("dotenv").config({ silent: true });
+// require("dotenv").config({ silent: true });
 
 const server = () => {
   try {
     app
       .listen(process.env.PORT, () => {
-        console.log(`http://${process.env.HOST}:${process.env.PORT}`);
+        console.log(`http://localhost:${3001}`);
       })
       .on("error", () => {
         console.log("Unable to initialise server.");
