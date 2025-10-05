@@ -5,6 +5,7 @@ const {
   addTransaction,
   updateTransaction,
   deleteTransactions,
+  healthCheck,
 } = require("../../controller");
 const dashboard = require("../../controller/usercontroller/dashboard");
 const userSignUp = require("../../controller/usercontroller/usersignup");
@@ -15,6 +16,7 @@ const userRouter = require("express").Router();
 userRouter.post("/login", userLogin);
 userRouter.post("/signup", userSignUp);
 userRouter.get("/dashboard", dashboard);
+userRouter.get("/hello", healthCheck);
 
 userRouter.get("/transactions", userTransaction);
 userRouter.post("/add/transactions", addTransaction);

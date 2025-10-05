@@ -4,6 +4,7 @@ const {
   updateTaskById,
   deleteTaskById,
 } = require("./usercontroller/gettasks");
+const healthCheck = require("./usercontroller/healthcheck");
 const userLogin = require("./usercontroller/userlogin");
 const {
   userTransaction,
@@ -18,6 +19,7 @@ module.exports = {
   // getTask: getTask,
   // updateTaskById: updateTaskById,
   // deleteTaskById: deleteTaskById,
+  healthCheck: healthCheck,
   userTransaction: userTransaction,
   addTransaction: addTransaction,
   updateTransaction: updateTransaction,

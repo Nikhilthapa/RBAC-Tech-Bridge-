@@ -1,5 +1,5 @@
 const app = require("./app");
-// require("dotenv").config({ silent: true });
+require("dotenv").config({ silent: true });
 
 const server = () => {
   try {
