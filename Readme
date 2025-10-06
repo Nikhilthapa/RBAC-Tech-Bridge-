@@ -1,18 +1,15 @@
 # Task Management API (RBAC)
 
-A small Task Management API built with **Node.js** and **Express** that supports **JWT authentication** and **role-based access control (RBAC)**.
+A finance Management API built with **Node.js** and **Express** that supports **JWT authentication** and **role-based access control (RBAC)**.
 
-Users can be **Admin, Manager, or User**, and their role determines what tasks they can manage.
+Users can be **Admin, readonly, or User**, and their role determines what tasks they can manage.
 
 ---
 
 ## Features
 
 - User authentication with JWT
-- Role-based permissions: Admin, Manager, User
-- CRUD operations on tasks
-- In-memory storage (no database)
-- Proper error handling (401, 403, 404, 500)
+- Role-based permissions: Admin, readonly, User
 
 ---
 
@@ -21,7 +18,7 @@ Users can be **Admin, Manager, or User**, and their role determines what tasks t
 | Role    | Permissions on Tasks                     |
 | ------- | ---------------------------------------- |
 | Admin   | Create, Read all, Update any, Delete any |
-| Manager | Create, Read all, Update own only        |
+| readonly | Read all|
 | User    | Create, Read own only, Update own only   |
 
 ---
@@ -29,10 +26,9 @@ Users can be **Admin, Manager, or User**, and their role determines what tasks t
 ## Endpoints
 
 - **POST /user/login** → Get JWT
-- **POST /task/create** → Create task
-- **GET /task/gettask** → Get tasks (all or own depending on role)
-- **PUT /task/update//:id** → Update task
-- **DELETE /task/delete/:id** → Delete task (Admin only)
+- **POST /user/dashboard** → Create task
+- **GET /user/dashboard** → Get tasks (all or own depending on role)
+- **PUT /user/update/transactions** → Update task
 
 ---
 
