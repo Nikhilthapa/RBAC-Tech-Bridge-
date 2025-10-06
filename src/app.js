@@ -11,6 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
 
 app.use("/user", userRouter);
+// const options = {
+//   key: fs.readFileSync("/path/to/key.pem"),
+//   cert: fs.readFileSync("/path/to/cert.pem"),
+// };
 // app.use("/task", taskRouter);
 
 app.use((err, req, res, next) => {
