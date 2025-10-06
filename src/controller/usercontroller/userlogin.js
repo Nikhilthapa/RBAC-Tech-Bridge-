@@ -7,11 +7,19 @@ const userLogin = (req, res, next) => {
     const { email, password, role } = req.body;
     if (!email || !password || !role)
       return next(new ApiError(401, "Invalid Request"));
-    let foundUser = userSignData[email];
-    if (!foundUser) {
+    console.log(role);
+
+    let foundUser = users.find((id) => id.email == email);
+    console.log(foundUser);
+
+    if (
+      !foundUser &&
+      foundUser.password !== password.trim() &&
+      foundUser.role !== role
+    ) {
       return next(new ApiError(401, "account not found"));
     }
-    const token = signJwt({ email, role });
+    const token = signJwt({ id: foundUser.id, role });
     res.status(200).json({
       token,
       user: { name: foundUser.name, role },

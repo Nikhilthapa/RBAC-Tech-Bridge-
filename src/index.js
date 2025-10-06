@@ -1,10 +1,9 @@
 const app = require("./app");
 require("dotenv").config({ silent: true });
-
 const server = () => {
   try {
     app
-      .listen(process.env.PORT, () => {
+      .listen(3001, () => {
         console.log(`http://localhost:${3001}`);
       })
       .on("error", () => {

@@ -1,6 +1,5 @@
 const {
   userLogin,
-  task,
   userTransaction,
   addTransaction,
   updateTransaction,
@@ -9,18 +8,29 @@ const {
 } = require("../../controller");
 const dashboard = require("../../controller/usercontroller/dashboard");
 const userSignUp = require("../../controller/usercontroller/usersignup");
-const { userAuth } = require("../../middlewares");
+const { userAuth, authMiddleware } = require("../../middlewares");
+const { rbacCheck } = require("../../middlewares/role.Auth");
 
 const userRouter = require("express").Router();
 
 userRouter.post("/login", userLogin);
-userRouter.post("/signup", userSignUp);
-userRouter.get("/dashboard", dashboard);
+// userRouter.post("/signup", userSignUp);
+userRouter.get("/dashboard", authMiddleware, dashboard);
 userRouter.get("/hello", healthCheck);
 
-userRouter.get("/transactions", userTransaction);
-userRouter.post("/add/transactions", addTransaction);
-userRouter.put("/update/transactions/:id", updateTransaction);
+userRouter.get("/transactions", authMiddleware, userTransaction);
+userRouter.post(
+  "/add/transactions",
+  authMiddleware,
+  rbacCheck("create"),
+  addTransaction
+);
+userRouter.put(
+  "/update/transactions/:id",
+  authMiddleware,
+  rbacCheck("update"),
+  updateTransaction
+);
 userRouter.delete("/del/transactions/:id", deleteTransactions);
 
 // userRouter.get("/tasks", userAuth, task);

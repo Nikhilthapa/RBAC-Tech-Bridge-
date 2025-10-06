@@ -3,6 +3,9 @@ const { transactionData } = require("../../utils/data");
 const userTransaction = (req, res, next) => {
   try {
     let data = transactionData;
+    if (req.user.role == "user") {
+      data = data.filter((id) => id.userId == req.user.id);
+    }
     res.status(200).json({ data });
   } catch (error) {
     console.log(error.message);
